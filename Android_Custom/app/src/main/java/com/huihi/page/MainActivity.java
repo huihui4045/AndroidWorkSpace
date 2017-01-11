@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.huihi.Data;
 import com.huihi.R;
 
 
@@ -113,12 +114,28 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.btn_chart:
 
-                intent.setClass(MainActivity.this, ArcChartActivity.class);
+                intent.putExtra(Data.ARG_TYPE,Data.FLAG_ARC_VIEW);
+
+
+
+                break;
+
+            case R.id.btn_scroll:
+
+                intent.putExtra(Data.ARG_TYPE,Data.FLAG_MY_SCROLL_VIEW);
+
+                break;
+
+            case R.id.btn_list_view:
+
+
+                intent.putExtra(Data.ARG_TYPE,Data.FLAG_MY_LIST_VIEW);
 
                 break;
 
 
         }
+        intent.setClass(MainActivity.this, ArcChartActivity.class);
 
         startActivity(intent);
     }

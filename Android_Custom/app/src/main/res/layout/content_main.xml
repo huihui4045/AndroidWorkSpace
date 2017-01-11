@@ -17,5 +17,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/btn_scroll"
+        android:onClick="onClick"
+        android:text="自定义布局"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:id="@+id/btn_list_view"
+        android:onClick="onClick"
+        android:text="ListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 </LinearLayout>

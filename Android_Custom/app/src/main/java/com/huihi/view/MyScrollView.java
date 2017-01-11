@@ -17,6 +17,12 @@ public class MyScrollView extends ViewGroup {
     private int mScreenHeight;
     private Scroller mScroller;
 
+    private int mLastY;
+
+    private int mStart;
+
+    private  int mEnd;
+
     public MyScrollView(Context context) {
         super(context);
 
@@ -81,8 +87,77 @@ public class MyScrollView extends ViewGroup {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
 
 
+        int y= (int) event.getY();
+
+        switch (event.getAction()){
+
+            case MotionEvent.ACTION_DOWN:
+                mLastY=y;
+                mStart=getScrollY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                if (!mScroller.isFinished()){
+                    mScroller.abortAnimation();
+                }
+            int dy= mLastY-y;
+                if (getScrollY()<0){
+                    dy=0;
+                }
+                if (getScrollY()>getHeight()-mScreenHeight){
+                    dy=0;
+                }
+                scrollBy(0,dy);
+                mLastY=y;
+                break;
+            case MotionEvent.ACTION_UP:
+
+                mEnd=getScrollY();
+
+                int dScrollY=mEnd-mStart;
+
+                if (dScrollY>0){
+                    if (dScrollY<mScreenHeight/3){
+
+                        mScroller.startScroll(0,getScrollY(),0,-dScrollY);
+                    }else {
+
+                        mScroller.startScroll(0,getScrollY(),0,mScreenHeight-dScrollY);
+                    }
+
+                }else {
+
+
+                    if (-dScrollY<mScreenHeight/3) {
+
+                        mScroller.startScroll(0,getScrollY(),0,-dScrollY);
+                    } else {
+
+                        mScroller.startScroll(0,getScrollY(),0,-mScreenHeight-dScrollY);
+                    }
+
+                }
+
+                break;
+        }
+
+
+        postInvalidate();
+
+        return true;
+
+    }
+
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+
+        if (mScroller.computeScrollOffset()){
+
+            scrollTo(0,mScroller.getCurrY());
+
+            postInvalidate();
+        }
     }
 }
