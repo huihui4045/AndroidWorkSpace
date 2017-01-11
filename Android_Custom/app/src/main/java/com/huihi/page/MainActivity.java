@@ -132,6 +132,12 @@ public class MainActivity extends AppCompatActivity
                 intent.putExtra(Data.ARG_TYPE,Data.FLAG_MY_LIST_VIEW);
 
                 break;
+            case R.id.btn_list_hide:
+
+
+                intent.putExtra(Data.ARG_TYPE,Data.FLAG_MY_LIST_HIDE);
+
+                break;
 
 
         }

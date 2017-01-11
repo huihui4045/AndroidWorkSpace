@@ -10,4 +10,5 @@ public class Data {
     public static final int FLAG_ARC_VIEW = 0;
     public static final int FLAG_MY_SCROLL_VIEW = 1;
     public static final int FLAG_MY_LIST_VIEW = 2;
+    public static final int FLAG_MY_LIST_HIDE = 3;
 }

@@ -55,6 +55,16 @@ public class ArcChartActivity extends AppCompatActivity {
 
 
                 break;
+
+            case Data.FLAG_MY_LIST_HIDE:
+
+                setTheme(R.style.AppTheme_NoActionBar);
+
+
+                setContentView(R.layout.list_view_hide);
+
+
+                break;
         }
 
 

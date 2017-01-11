@@ -33,4 +33,13 @@
         android:layout_height="wrap_content" />
 
 
+
+    <Button
+        android:id="@+id/btn_list_hide"
+        android:onClick="onClick"
+        android:text="ListView 隐藏标题栏"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
 </LinearLayout>
