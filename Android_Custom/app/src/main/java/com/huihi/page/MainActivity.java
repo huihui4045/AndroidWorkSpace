@@ -139,6 +139,12 @@ public class MainActivity extends AppCompatActivity
 
                 break;
 
+            case R.id.btn_scroll_view:
+
+                intent.putExtra(Data.ARG_TYPE,Data.FLAG_SCROLL_VIEW);
+
+                break;
+
 
         }
         intent.setClass(MainActivity.this, ArcChartActivity.class);

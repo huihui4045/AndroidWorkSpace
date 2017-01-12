@@ -6,5 +6,7 @@ package com.huihi.listener;
 
 public interface OnScrollStateListener {
 
-    
+    void scrollDown();
+
+    void scrollUp();
 }
