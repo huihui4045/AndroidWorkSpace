@@ -36,6 +36,7 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
 
     private int lastY;
     private String TAG=this.getClass().getSimpleName();
+    private int mFirstTop;
 
 
     @Override
@@ -107,6 +108,9 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
 
                 mTopLayout = ((View) findViewById(R.id.ly_top));
 
+
+
+
                 mScrollView.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
@@ -127,12 +131,29 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
                             case MotionEvent.ACTION_MOVE:
 
 
+                                int bottom = mTopLayout.getBottom();
 
-                                int offsetY = y - lastY;
 
-                                Log.e(TAG,"偏移量："+offsetY);
+                                int allOffsetY = Math.abs((bottom - mFirstTop));
+                                Log.e(TAG,"总偏移量："+ allOffsetY);
 
-                                mTopLayout.offsetTopAndBottom(offsetY);
+
+
+                              //  if (allOffsetY<mFirstTop){
+
+                                    int offsetY = y - lastY;
+
+                                    Log.e(TAG,"偏移量："+offsetY);
+
+
+
+                                    mTopLayout.offsetTopAndBottom(offsetY);
+
+                                    //mScrollView.offsetTopAndBottom(offsetY);
+
+
+
+                                //}
 
                                 lastY = y;
 
@@ -158,6 +179,18 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+         mTopLayout.post(new Runnable() {
+             @Override
+             public void run() {
+
+                 mFirstTop=mTopLayout.getHeight();
+             }
+         });
+    }
 
     private List<String> getDatas(int num) {
 
