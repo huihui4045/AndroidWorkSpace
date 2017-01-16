@@ -183,6 +183,7 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
     protected void onResume() {
         super.onResume();
 
+        if (mTopLayout!=null)
          mTopLayout.post(new Runnable() {
              @Override
              public void run() {
