@@ -16,7 +16,6 @@ public class VDHLayout extends LinearLayout {
     private ViewDragHelper mViewDragHelper;
 
 
-
     public VDHLayout(Context context) {
         super(context);
         initView(context);
@@ -37,7 +36,7 @@ public class VDHLayout extends LinearLayout {
 
     private void initView(Context context) {
 
-        mViewDragHelper= ViewDragHelper.create(this,1.0f, new ViewDragHelper.Callback() {
+        mViewDragHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelper.Callback() {
             @Override
             public boolean tryCaptureView(View child, int pointerId) {
                 return true;
@@ -45,12 +44,17 @@ public class VDHLayout extends LinearLayout {
 
             @Override
             public int clampViewPositionHorizontal(View child, int left, int dx) {
-                return super.clampViewPositionHorizontal(child, left, dx);
+                final int leftBound = getPaddingLeft();
+                final int rightBound = getWidth() - child.getWidth() - leftBound;
+
+                final int newLeft = Math.min(Math.max(left, leftBound), rightBound);
+
+                return newLeft;
             }
 
             @Override
             public int clampViewPositionVertical(View child, int top, int dy) {
-                return super.clampViewPositionVertical(child, top, dy);
+                return top;
             }
         });
 
@@ -59,11 +63,12 @@ public class VDHLayout extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return super.onInterceptTouchEvent(ev);
+        return mViewDragHelper.shouldInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
+        mViewDragHelper.processTouchEvent(event);
+        return true;
     }
 }
