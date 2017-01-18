@@ -145,6 +145,10 @@ public class MainActivity extends AppCompatActivity
 
                 break;
 
+            case R.id.btn_anim:
+                intent.putExtra(Data.ARG_TYPE,Data.FLAG_ANIM);
+                break;
+
 
         }
         intent.setClass(MainActivity.this, ArcChartActivity.class);
