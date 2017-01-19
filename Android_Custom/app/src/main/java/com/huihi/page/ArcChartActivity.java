@@ -2,6 +2,7 @@ package com.huihi.page;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -208,12 +209,43 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
                 startTranslationAnimtor();
 
                 break;
+
+            case R.id.btn_Rotation:
+
+                startRotationAnimtor();
+
+                break;
+
+            case R.id.btn_AnimList:
+
+                startPropertyAnim();
+
+                break;
         }
+    }
+
+    private void startPropertyAnim() {
+
+        PropertyValuesHolder pvhScaleX = PropertyValuesHolder.ofFloat("scaleX", 1f, 0f);
+        PropertyValuesHolder pvhScaleY = PropertyValuesHolder.ofFloat("scaleY", 1f, 0f);
+        PropertyValuesHolder pvhRotation = PropertyValuesHolder.ofFloat("Rotation", 0, 360);
+
+        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(mView, pvhScaleX, pvhScaleY, pvhRotation);
+
+        animator.setDuration(2000);
+        animator.setRepeatMode(ValueAnimator.REVERSE);
+        animator.setRepeatCount(-1);
+        animator.start();
+
+        ValueAnimator valueAnimator;
+
+
     }
 
     private AnimatorSet mAnimatorSet = new AnimatorSet();
 
     /**
+     * 透明度
      * RESTART：重新从头开始执行。
      * REVERSE：反方向执行。
      *
@@ -228,9 +260,12 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
         animator.start();
     }
 
-    private void startTranslationAnimtor(){
+    /**
+     * 位移动画
+     */
+    private void startTranslationAnimtor() {
 
-        ObjectAnimator animator = ObjectAnimator.ofFloat(mView, "TranslationX",0,500);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(mView, "TranslationX", 0, 500);
         animator.setDuration(3000);
         animator.setRepeatCount(-1);
         animator.setRepeatMode(ValueAnimator.REVERSE);
@@ -244,24 +279,31 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
 
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(mView, "scaleX", 1f, 0f);
         ObjectAnimator scaleY = ObjectAnimator.ofFloat(mView, "scaleY", 1f, 0f);
-
-        ObjectAnimator animator = ObjectAnimator.ofFloat(mView, "alpha", 1f,0f);
-
+        ObjectAnimator animator = ObjectAnimator.ofFloat(mView, "alpha", 1f, 0f);
         scaleX.setRepeatCount(-1);
         scaleY.setRepeatCount(-1);
         animator.setRepeatCount(-1);
         scaleX.setRepeatMode(ValueAnimator.REVERSE);
         scaleY.setRepeatMode(ValueAnimator.REVERSE);
-
-
         animator.setRepeatMode(ValueAnimator.REVERSE);
-
-
         mAnimatorSet.setDuration(2000);
-
         mAnimatorSet.setInterpolator(new DecelerateInterpolator());
-        mAnimatorSet.playTogether(scaleX,scaleY,animator);//两个动画同时开始
+        mAnimatorSet.playTogether(scaleX, scaleY, animator);//两个动画同时开始
         mAnimatorSet.start();
+    }
+
+    /**
+     * 旋转动画
+     */
+    private void startRotationAnimtor() {
+
+        ObjectAnimator rotation = ObjectAnimator.ofFloat(mView, "Rotation", 0, 180);
+        // rotation.setRepeatCount(-1);
+        rotation.setRepeatMode(ValueAnimator.REVERSE);
+        rotation.setDuration(2000);
+        rotation.start();
+
+
     }
 
     @Override
