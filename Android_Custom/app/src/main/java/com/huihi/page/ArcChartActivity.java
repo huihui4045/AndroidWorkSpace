@@ -182,6 +182,12 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
 
 
                 break;
+
+            case Data.FLAG_ANIM_CUSTOM:
+
+                setContentView(R.layout.custom_anim);
+
+                break;
         }
 
 
@@ -221,6 +227,8 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
                 startPropertyAnim();
 
                 break;
+
+
         }
     }
 
@@ -302,6 +310,7 @@ public class ArcChartActivity extends AppCompatActivity implements OnScrollState
         rotation.setRepeatMode(ValueAnimator.REVERSE);
         rotation.setDuration(2000);
         rotation.start();
+
 
 
     }

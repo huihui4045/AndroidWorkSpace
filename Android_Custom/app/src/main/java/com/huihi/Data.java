@@ -14,4 +14,5 @@ public class Data {
     public static final int FLAG_MY_SCROLL_PULL = 4;
     public static final int FLAG_SCROLL_VIEW = 5;
     public static final int FLAG_ANIM = 6;
+    public static final int FLAG_ANIM_CUSTOM = 7;
 }
