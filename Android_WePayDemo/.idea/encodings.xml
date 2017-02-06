@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/net/sourceforge/simcpux/AppRegister.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/net/sourceforge/simcpux/Constants.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/net/sourceforge/simcpux/Constants.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/net/sourceforge/simcpux/GetFromWXActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/net/sourceforge/simcpux/ScanQRCodeLoginActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/net/sourceforge/simcpux/wxapi/WXEntryActivity.java" charset="GBK" />
+  </component>
+</project>
