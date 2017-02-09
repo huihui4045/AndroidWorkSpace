@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="titles">
+        <item>啦啦啦啦</item>
+        <item>哈哈哈</item>
+        <item>你是谁</item>
+        <item>怎么会这样</item>
+        <item>这可如何是好？</item>
+        <item>111</item>
+        <item>222</item>
+        <item>333</item>
+        <item>444</item>
+        <item>555</item>
+        <item>666</item>
+    </string-array>
+</resources>
+
