@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by molu_ on 2017/2/9.
  */
@@ -15,10 +17,10 @@ public class NormalRecyclerViewAdapter extends RecyclerView.Adapter<NormalRecycl
 
     private final LayoutInflater mLayoutInflater;
     private final Context mContext;
-    private String[] mTitles;
+    private List<String> mTitles;
 
-    public NormalRecyclerViewAdapter(Context context) {
-        mTitles = context.getResources().getStringArray(R.array.titles);
+    public NormalRecyclerViewAdapter(Context context, List<String> datas) {
+        mTitles = datas;
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
     }
@@ -30,12 +32,12 @@ public class NormalRecyclerViewAdapter extends RecyclerView.Adapter<NormalRecycl
 
     @Override
     public void onBindViewHolder(NormalTextViewHolder holder, int position) {
-        holder.mTextView.setText(mTitles[position]);
+        holder.mTextView.setText(mTitles.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return mTitles == null ? 0 : mTitles.length;
+        return mTitles == null ? 0 : mTitles.size();
     }
 
     public static class NormalTextViewHolder extends RecyclerView.ViewHolder {

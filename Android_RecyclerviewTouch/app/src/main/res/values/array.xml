@@ -14,5 +14,12 @@
         <item>555</item>
         <item>666</item>
     </string-array>
+
+
+    <string-array name="item">
+        <item>ListRecycler</item>
+        <item>GridRecycler</item>
+
+    </string-array>
 </resources>
 
