@@ -49,7 +49,7 @@ public class RecyclerListFragment extends Fragment {
 
         List<User> users = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
 
             users.add(new User("辉辉" + i, 15 + i));
         }
@@ -64,6 +64,21 @@ public class RecyclerListFragment extends Fragment {
         mItemTouchHelper = new ItemTouchHelper(callback);
 
         mItemTouchHelper.attachToRecyclerView(recyclerView);
+
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
 
     }
 }
