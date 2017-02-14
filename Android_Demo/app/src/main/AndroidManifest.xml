@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.huihui.demo">
 
+    <uses-permission android:name="com.huihui.PROVIDER"/>
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -19,12 +21,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".BActivity"
+            android:launchMode="singleTask"
             />
         <activity
             android:name=".CActivity"
             android:launchMode="singleInstance">
 
         </activity>
+
+        <provider
+            android:authorities="com.huihui.demo.BookProvider"
+            android:permission="com.huihui.PROVIDER"
+             android:process=":provider"
+            android:name=".BookProvider"/>
     </application>
 
 </manifest>

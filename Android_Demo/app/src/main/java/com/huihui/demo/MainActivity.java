@@ -1,14 +1,19 @@
 package com.huihui.demo;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 
+import java.util.concurrent.CopyOnWriteArrayList;
+
 public class MainActivity extends BaseActivity implements Handler.Callback{
 
     private Handler handler=new Handler(this);
+
+    private CopyOnWriteArrayList<String> datas=new CopyOnWriteArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +30,13 @@ public class MainActivity extends BaseActivity implements Handler.Callback{
         });
 
 
-        handler.sendEmptyMessage(11);
+        //handler.sendEmptyMessage(11);
+
+        Uri uri=Uri.parse("content://com.huihui.demo.BookProvider");
+
+        getContentResolver().query(uri,null,null,null,null);
+        getContentResolver().query(uri,null,null,null,null);
+        getContentResolver().query(uri,null,null,null,null);
 
     }
 

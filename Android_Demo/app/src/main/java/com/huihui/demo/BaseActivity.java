@@ -77,8 +77,18 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.e(TAG, "onSaveInstanceState");
+
+
+        if (outState==null){
+
+            Log.e(TAG, "onSaveInstanceState  null");
+        }else {
+
+            Log.e(TAG, "onSaveInstanceState  not null");
+        }
     }
+
+
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
