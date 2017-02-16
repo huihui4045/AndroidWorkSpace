@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         for (int i = 0; i < 50; i++) {
+            
 
             datas.add(i);
         }
