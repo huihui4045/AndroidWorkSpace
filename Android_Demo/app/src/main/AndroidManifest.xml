@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.huihui.demo">
 
-    <uses-permission android:name="com.huihui.PROVIDER"/>
+    <uses-permission android:name="com.huihui.PROVIDER" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".MyApp"
@@ -11,29 +13,27 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:configChanges="orientation|screenSize">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BActivity"
-            android:launchMode="singleTask"
-            />
+        <activity
+            android:name=".BActivity"
+            android:launchMode="singleTask" />
         <activity
             android:name=".CActivity"
-            android:launchMode="singleInstance">
-
-        </activity>
+            android:launchMode="singleInstance"></activity>
 
         <provider
+            android:name=".BookProvider"
             android:authorities="com.huihui.demo.BookProvider"
             android:permission="com.huihui.PROVIDER"
-             android:process=":provider"
-            android:name=".BookProvider"/>
+            android:process=":provider" />
+
+        <activity android:name=".activity.WebActivity"></activity>
     </application>
 
 </manifest>
